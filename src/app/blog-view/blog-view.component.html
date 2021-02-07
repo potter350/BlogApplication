@@ -1,0 +1,41 @@
+
+<div class="container">
+    <div class="row text-center" *ngIf="currentBlog">
+      <div class="col-md-12">
+        <h3>{{currentBlog.name}}</h3>
+        <br>
+        <h2>{{currentBlog.username}}</h2>
+        <!-- <small>blog number - {{currentBlog.blogId}}</small> -->
+        <p>email - {{currentBlog.email}} </p>
+        <br>
+        <p>address- {{(currentBlog.address) }}</p>
+        <div innerHtml="SON.stringify(currentBlog.address)"></div>
+        <p > <span *ngFor="let tag of currentBlog.tags;let first=first;let last=last">{{tag}}{{last ? '' : ', '}}</span></p>
+        <hr>
+        <div > Company - {{currentBlog.company}} </div>
+        <hr>
+        <br>
+        <h2> Website - {{currentBlog.webiste}}</h2> <br>
+        <h2> Phone - {{currentBlog.phone}}</h2>
+        <br>
+      </div>
+    </div>
+    <hr>
+    <div class="row text-center" *ngIf="currentBlog">
+      <div class="col-md-4">
+  
+        <a class="btn btn-primary"  [routerLink]="['/edit',currentBlog.id]">Edit </a>
+  
+      </div>
+      <div class="col-md-4">
+  
+        <a class="btn btn-danger" (click) = "deleteblog()" >Delete </a>
+  
+      </div>
+      <div class="col-md-4">
+  
+        <a class="btn btn-warning" (click) = "goback()" >Go Back </a>
+      </div>
+    </div>
+  
+  </div>
